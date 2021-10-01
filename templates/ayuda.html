@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main role="main" class="container">
+      <div class="row">
+           {% for item in contenido_list%}
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            SLM SOPORTE
+          </h3>
+
+          <div class="blog-post">
+            <h2 class="blog-post-title">{{ item.titulo}}</h2>
+            <p class="blog-post-meta">{{ item.fecha_publicacion}}<a href="#">{{ item.usuario }}</a></p>
+
+            <p>{{ item.cuerpo  | safe }}</p>
+
+                   <blockquote>
+                       <video width="500" height="300" controls >
+          <source src="{{item.video.url}}" type="video/mp4">
+                           <b>{{item.titulo}}</b>
+                           </video>
+            </blockquote>
+                    </div><!-- /.blog-post -->
+
+
+
+
+
+
+
+        </div><!-- /.blog-main -->
+{%  endfor %}
+   {% for item in about_list%}
+        <aside class="col-md-4 blog-sidebar">
+          <div class="p-3 mb-3 bg-light rounded">
+            <h4 class="font-italic" >{{item.titulo}}</h4>
+            <p class="mb-0">{{ item.sobre }}</p>
+          </div>
+
+          <div class="p-3">
+            <h4 class="font-italic"> BIBLIOTECA</h4>
+
+          </div>
+
+<ul id="myUL">
+  <li><span class="caret">Categorías</span>
+
+
+    <ul class="nested">
+        {% for item in lista_subcategoria%}
+
+      <li><span class="caret">{{ item.titulo }}</span>
+        <ul class="nested">
+
+              {% for itemj in contenido_list%}
+                  {%  if itemj.SubcategoriaC_id == item.id%}
+          <a href="{% url 'ayuda'  %}?id_contenido={{ itemj.id }}&id_categoria={{ itemj.categoriaC.id }}">{{ itemj.titulo }}</a>
+                     {% endif %}
+                  {%  endfor %}
+
+
+        </ul>
+      </li>
+          {% endfor %}
+    </ul>
+
+  </li>
+</ul>
+
+        </aside><!-- /.blog-sidebar -->
+{%  endfor %}
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+{% endblock %}

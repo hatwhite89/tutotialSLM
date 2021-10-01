@@ -1,0 +1,115 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Ayuda SLM</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/blog/">
+
+    <!-- Bootstrap core CSS -->
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+<style>
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+</style>
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="blog-header py-3">
+          <img height="120" src="{% static 'logo3.png'%}">
+             </header>
+
+      <div class="nav-scroller py-1 mb-2">
+        <nav class="nav d-flex justify-content-between">
+             <a class="p-2 text-muted" href="{% url 'main'  %}">Inicio</a>
+          <a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=3">Factura</a>
+          <a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=4">Contabilidad</a>
+          <a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=1">Almacén</a>
+          <a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=5">Laboratorio</a>
+          <a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=6">Resultados</a>
+          <a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=8">Factura empresarial</a>
+          <a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=7">Conserje</a>
+<a class="p-2 text-muted" href="{% url 'listadoayuda'  %}?id_categoria=2">RRHH</a>
+
+
+        </nav>
+      </div>
+
+
+
+    </div>
+
+ {% block content %}
+
+{% endblock %}
+    <footer class="blog-footer">
+        <hr>
+        <center>
+        <p  >Soporte ORANGEHN 2021</p></center>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+    </script>
+  </body>
+</html>

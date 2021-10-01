@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <main role="main" class="container">
+      <div class="row">
+
+        <div class="col-md-8 blog-main">
+          <h3 class="pb-3 mb-4 font-italic border-bottom">
+            SLM SOPORTE
+          </h3>
+
+          <div class="blog-post">
+        {% for item in about_list%}
+        <aside class="col-md-8 blog-sidebar">
+          <div class="p-3 mb-3 bg-light rounded">
+            <h4 class="font-italic" >{{item.titulo}}</h4>
+            <p class="mb-0">{{ item.sobre }}</p>
+          </div>
+
+          <div class="p-3">
+            <h4 class="font-italic">Seleccione uno de los temas</h4>
+
+          </div>
+
+<ul id="myUL">
+  <li><span class="caret">Temas</span>
+
+
+    <ul class="nested">
+        {% for item in lista_subcategoria%}
+
+      <li><span class="caret">{{ item.titulo }}</span>
+        <ul class="nested">
+
+              {% for itemj in contenido_list%}
+                  {%  if itemj.SubcategoriaC_id == item.id%}
+          <a href="{% url 'ayuda'  %}?id_contenido={{ itemj.id }}&id_categoria={{ itemj.categoriaC.id }}">{{ itemj.titulo }}</a>
+                     {% endif %}
+                  {%  endfor %}
+
+
+        </ul>
+      </li>
+          {% endfor %}
+    </ul>
+
+  </li>
+</ul>
+
+        </aside><!-- /.blog-sidebar -->
+{%  endfor %}
+                    </div><!-- /.blog-post -->
+
+
+
+
+
+
+
+        </div><!-- /.blog-main -->
+
+
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+    <br>    <br>    <br>
+{% endblock %}
