@@ -14,7 +14,7 @@ class SubCategoria(models.Model):
     categoriaC = models.ForeignKey(Categoria, on_delete=models.CASCADE,null=True,blank=True  )
     def __str__(self):
         return self.titulo
-
+#comentario
 class Contenido(models.Model):
       titulo = models.CharField(max_length=200)
       cuerpo = RichTextField()
